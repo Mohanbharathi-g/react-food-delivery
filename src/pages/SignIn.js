@@ -4,18 +4,37 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import { NavLink, useNavigate } from 'react-router-dom';
 
 import { auth } from '../firebase';
+import { useDispatch } from 'react-redux';
+import {
+  setAddress,
+  setImageAsset,
+  setMail,
+  setNumber,
+  setUser,
+  setUserName,
+} from '../app/CartSlice';
 
 const SignIn = () => {
   const [email, setEmail] = useState('');
 
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const clearDetails = () => {
+    dispatch(setUserName(null));
+    dispatch(setAddress(null));
+    dispatch(setImageAsset(null));
+    dispatch(setMail(null));
+
+    dispatch(setUser(null));
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    clearDetails();
     await signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        console.log(userCredential);
         navigate('/home');
       })
       .catch((err) => {

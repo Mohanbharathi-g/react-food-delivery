@@ -16,7 +16,7 @@ const Item = ({ id, itemId, imgSrc, name, ratings, price }) => {
       <div
         key={id}
         className='grid items-center p-5 
-      rounded-xl shadow-xl bg-orange-300'
+      rounded-xl shadow-xl bg-slate-50'
       >
         <div className='relative'>
           <img
@@ -26,28 +26,33 @@ const Item = ({ id, itemId, imgSrc, name, ratings, price }) => {
           />
           <div>
             <AiOutlineHeart
-              className='absolute top-2 right-2 w-6 h-6  cursor-pointer
-            text-slate-100 hover:text-red-500'
+              className='absolute top-2 right-2 w-8 h-6 rounded-full  cursor-pointer
+            text-orange-500 hover:text-red-500'
             />
           </div>
         </div>
         <div className='flex items-center justify-between'>
           <div className='pt-2'>
-            <h1 className='text-xl lg:text-2xl font-bold text-slate-100'>
+            <h1 className='text-xl lg:text-2xl font-bold text-orange-500'>
               {name}
             </h1>
-            <p className='flex items-center gap-3 text-lg font-bold text-slate-100'>
+            <p className='flex items-center gap-3 text-lg font-bold text-orange-500'>
               {ratings}
+
               <span>
                 <AiOutlineStar className='w- h-6' />
               </span>
             </p>
-            <h1 className='text-2xl font-semibold text-orange-800'>${price}</h1>
+            <h1 className='text-2xl font-semibold text-orange-500'>${price}</h1>
           </div>
-          <div className='  p-1 rounded-full'>
+          <div className='  px-1 rounded-full'>
             <AiOutlinePlus
               onClick={onAddingItem}
-              className='w-6 h-6 text-orange-600 hover:scale-110 hover:bg-slate-100 rounded-xl'
+              className='w-8 h-8 
+              bg-slate-100 rounded-md text-orange-500 
+              font-extrabold
+              hover:scale-90
+              '
             />
           </div>
         </div>

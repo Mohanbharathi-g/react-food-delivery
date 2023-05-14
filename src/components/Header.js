@@ -1,15 +1,20 @@
 import React, { useEffect, useState } from 'react';
 
-import { BiSearch } from 'react-icons/bi';
+import { BiHeart, BiSearch } from 'react-icons/bi';
 import { BsFillCartFill } from 'react-icons/bs';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { setOpenCart, selectTotalQuantity } from '../app/CartSlice';
+import { useNavigate } from 'react-router-dom';
+
+import profileImage from '../assets/3135715.png';
 
 const Header = ({ filterNames }) => {
   const [navState, setNavState] = useState(false);
   const [name, setName] = useState('');
   const dispatch = useDispatch();
+
+  const navigate = useNavigate();
   const totalQuantity = useSelector(selectTotalQuantity);
 
   // get the input value
@@ -58,9 +63,12 @@ ${
       >
         <div className='grid items-center relative'>
           <img
-            src='https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Flogo.png?alt=media&token=fc228623-ef27-4af4-8ea5-b9ebeeaf47dc'
+            src={profileImage}
             alt=''
             className='grid items-center  w-12 h-12  '
+            onClick={() => {
+              navigate('/profile');
+            }}
           />
         </div>
         <div className='flex items-center gap-2 relative'>
@@ -90,7 +98,14 @@ ${
             <p className='text-orange-500'>{totalQuantity}</p>
           </div>
         </div>
-        <div></div>
+        <div>
+          <BiHeart
+            onClick={() => {
+              navigate('/history');
+            }}
+            className={`icon-style text-orange-500 ${navState && ''}`}
+          />
+        </div>
       </div>
     </>
   );

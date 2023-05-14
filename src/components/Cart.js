@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { useNavigate } from 'react-router-dom';
+
 import {
   selectCartItem,
   selectCartState,
@@ -20,6 +22,8 @@ const Cart = () => {
   const totalPrice = useSelector(selectTotalPrice);
 
   const cartItem = useSelector(selectCartItem);
+
+  const navigate = useNavigate();
 
   // get the totals every time cartItem will update
   useEffect(() => {
@@ -63,6 +67,9 @@ const Cart = () => {
               type='button'
               className='button-theme bg-theme-cart 
                font-bold rounded-xl text-slate-100 bg-slate-900 py-3'
+              onClick={() => {
+                navigate('/details');
+              }}
             >
               Check Out
             </button>

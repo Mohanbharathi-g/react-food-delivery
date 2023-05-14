@@ -1,15 +1,25 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
-// Your web app's Firebase configuration
+import { getFirestore } from 'firebase/firestore';
+
+import { getStorage } from 'firebase/storage';
 const firebaseConfig = {
-  apiKey: 'AIzaSyDWhWhvKJeGqFC1UsWS-xUs385oCa-M23E',
-  authDomain: 'react-food-delivery-app-73a61.firebaseapp.com',
-  projectId: 'react-food-delivery-app-73a61',
-  storageBucket: 'react-food-delivery-app-73a61.appspot.com',
-  messagingSenderId: '173346167193',
-  appId: '1:173346167193:web:cf08d425a7444852365b08',
+  apiKey: 'AIzaSyBNNWm4UNwGNPA2KmrpnWPu10dYHAfmAKE',
+  authDomain: 'food-delivery-d31d5.firebaseapp.com',
+  projectId: 'food-delivery-d31d5',
+  storageBucket: 'food-delivery-d31d5.appspot.com',
+  messagingSenderId: '766327173657',
+  appId: '1:766327173657:web:ede2418b8d7471a9187088',
 };
 
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
+
+const db = getFirestore(app);
+
+const firestore = getFirestore(app);
+
+const storage = getStorage(app);
+
+export { db, firestore, storage };

@@ -5,17 +5,38 @@ import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { NavLink, useNavigate } from 'react-router-dom';
 
 import { auth } from '../firebase';
+import {
+  setAddress,
+  setImageAsset,
+  setMail,
+  setNumber,
+  setUser,
+  setUserName,
+} from '../app/CartSlice';
+
+import { useDispatch } from 'react-redux';
 
 const SignUp = () => {
   const [email, setEmail] = useState('');
 
+  const dispatch = useDispatch();
+
   const [password, setPassword] = useState('');
+  const clearDetails = () => {
+    dispatch(setUserName(null));
+    dispatch(setAddress(null));
+    dispatch(setImageAsset(null));
+    dispatch(setMail(null));
+    dispatch(setNumber(null));
+    dispatch(setUser(null));
+  };
 
   const navigate = useNavigate();
 
   // this function is if user will enter correct mail and password it will goed to home page
   const handleSubmit = async (e) => {
     e.preventDefault();
+    clearDetails();
     await createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         console.log(userCredential);
