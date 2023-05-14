@@ -6,7 +6,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import SignUp from './pages/SignUp';
 import SignIn from './pages/SignIn';
 import Home from './pages/Home';
-import Store from './app/Store';
+
 import Profile from './pages/Profile';
 import AddProfile from './pages/AddProfile';
 import AddingDetail from './pages/AddingDetail';

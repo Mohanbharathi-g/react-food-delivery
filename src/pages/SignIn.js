@@ -9,7 +9,6 @@ import {
   setAddress,
   setImageAsset,
   setMail,
-  setNumber,
   setUser,
   setUserName,
 } from '../app/CartSlice';
